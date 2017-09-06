@@ -26,18 +26,16 @@ public class SuperPowerup extends GameEntity implements Interactable {
 
     @Override
     public void apply(SnakeHead snakeHead) {
-        snakeHead.addPart(5);
-        snakeHead.changeHealth(10);
+        snakeHead.changeHealth(20);
         snakeHead.getRotate();
-        snakeHead.changeSpeed(1);
-        //SnakeBody.setHistorySize(5);
+        snakeHead.changeSpeed(2);
+        //SnakeBody.setHistorySize(2);
         destroy();
         for (int i =0; i < ThreadLocalRandom.current().nextInt(1,3); i++){
             SimplePowerup newSimplePower = new SimplePowerup(pane);
         }
         SuperPowerup newSuperPowerup = new SuperPowerup(pane);
     }
-
 
     @Override
     public String getMessage() {

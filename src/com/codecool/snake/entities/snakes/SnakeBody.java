@@ -15,7 +15,7 @@ public class SnakeBody extends GameEntity implements Animatable {
 
     private GameEntity parent;
     private Queue<Vec2d> history = new LinkedList<>();
-    private static final int historySize = 10;
+    private static int historySize = 10;
 
     public SnakeBody(Pane pane, GameEntity parent) {
         super(pane);
@@ -35,7 +35,9 @@ public class SnakeBody extends GameEntity implements Animatable {
         }
     }
 
-
+    public static void setHistorySize(int historySize) {
+        SnakeBody.historySize = historySize;
+    }
 
     public void step() {
         Vec2d pos = history.poll(); // remove the oldest item from the history
