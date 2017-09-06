@@ -21,6 +21,11 @@ public class Game extends Pane {
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
+        new SimplePowerup(this);
+        new SimplePowerup(this);
+
+        new SimplePowerup2(this);
+        new SimplePowerup2(this);
         new SimplePowerup2(this);
         new SimplePowerup2(this);
         new SimplePowerup2(this);
