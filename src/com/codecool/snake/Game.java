@@ -1,5 +1,6 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.enemies.CannabisEnemy;
 import com.codecool.snake.entities.enemies.JamaicaEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
@@ -14,18 +15,35 @@ public class Game extends Pane {
     public Game() {
         new SnakeHead(this, 500, 500);
 
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
+        for (int i = 0; i < randInt(1,4); i++) {
+            new SimpleEnemy(this);
+        }
 
-        new JamaicaEnemy(this);
-        new JamaicaEnemy(this);
+//        new SimpleEnemy(this);
+//        new SimpleEnemy(this);
+//        new SimpleEnemy(this);
+//        new SimpleEnemy(this);
 
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
+        for (int i = 0; i < randInt(1,4); i++) {
+            new JamaicaEnemy(this);
+        }
+
+//        new JamaicaEnemy(this);
+//        new JamaicaEnemy(this);
+
+        for (int i = 0; i < randInt(1,4); i++) {
+            new SimplePowerup(this);
+        }
+
+//        new SimplePowerup(this);
+//        new SimplePowerup(this);
+//        new SimplePowerup(this);
+//        new SimplePowerup(this);
+
+        for (int i = 0; i < randInt(1,4); i++) {
+            new CannabisEnemy(this);
+        }
+
     }
 
     public void start() {

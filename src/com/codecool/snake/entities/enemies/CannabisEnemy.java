@@ -12,17 +12,17 @@ import javafx.scene.layout.Pane;
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
-public class JamaicaEnemy extends GameEntity implements Animatable, Interactable {
+public class CannabisEnemy extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
     private static final int damage = 10;
 
-    public JamaicaEnemy(Pane pane) {
+    public CannabisEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.jamaicaEnemy);
+        setImage(Globals.cannabisEnemy);
         pane.getChildren().add(this);
-        int speed = setRandomSpeed(1,3);
+        int speed = setRandomSpeed(1,5);
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
