@@ -8,6 +8,8 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
+import java.util.Random;
+
 public class Game extends Pane {
 
     public Game() {
@@ -22,6 +24,7 @@ public class Game extends Pane {
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
+
         new SimplePowerup(this);
 
         new SimplePowerup2(this);
@@ -50,5 +53,11 @@ public class Game extends Pane {
         });
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
+    }
+
+    public static int randInt(int min, int max) {
+        Random random = new Random();
+        int randomNumber = random.nextInt((max - min) + 1) + min;
+        return randomNumber;
     }
 }
