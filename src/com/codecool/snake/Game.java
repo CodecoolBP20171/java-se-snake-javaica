@@ -54,4 +54,10 @@ public class Game extends Pane {
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
     }
+
+    public static int randInt(int min, int max) {
+        Random random = new Random();
+        int randomNumber = random.nextInt((max - min) + 1) + min;
+        return randomNumber;
+    }
 }
