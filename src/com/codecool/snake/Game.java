@@ -15,32 +15,22 @@ public class Game extends Pane {
     public Game() {
         new SnakeHead(this, 500, 500);
 
-        for (int i = 0; i < randInt(1,4); i++) {
+        for (int i = 0; i < Main.randInt(1,4); i++) {
             new SimpleEnemy(this);
         }
 
-//        new SimpleEnemy(this);
-//        new SimpleEnemy(this);
-//        new SimpleEnemy(this);
-//        new SimpleEnemy(this);
 
-        for (int i = 0; i < randInt(1,4); i++) {
+        for (int i = 0; i < Main.randInt(1,4); i++) {
             new JamaicaEnemy(this);
         }
 
-//        new JamaicaEnemy(this);
-//        new JamaicaEnemy(this);
 
-        for (int i = 0; i < randInt(1,4); i++) {
+        for (int i = 0; i < Main.randInt(1,4); i++) {
             new SimplePowerup(this);
         }
 
-//        new SimplePowerup(this);
-//        new SimplePowerup(this);
-//        new SimplePowerup(this);
-//        new SimplePowerup(this);
 
-        for (int i = 0; i < randInt(1,4); i++) {
+        for (int i = 0; i < Main.randInt(1,4); i++) {
             new CannabisEnemy(this);
         }
 
@@ -63,11 +53,5 @@ public class Game extends Pane {
         });
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
-    }
-
-    public static int randInt(int min, int max) {
-        Random random = new Random();
-        int randomNumber = random.nextInt((max - min) + 1) + min;
-        return randomNumber;
     }
 }

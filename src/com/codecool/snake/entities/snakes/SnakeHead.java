@@ -50,6 +50,7 @@ public class SnakeHead extends GameEntity implements Animatable {
                     System.out.println(interactable.getMessage());
                 }
             }
+            System.out.println("Health is :" + health);
         }
 
         // check for game over condition
