@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.snakes;
 
+import com.codecool.snake.GameOver;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -14,6 +15,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     private static final float turnRate = 2;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int health;
+    private static int powerUpCounter = 0;
 
     public SnakeHead(Pane pane, int xc, int yc) {
         super(pane);
@@ -55,6 +57,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
+            GameOver.display("GAME OVER", "Your score is " + (powerUpCounter - 1));
             Globals.gameLoop.stop();
         }
     }
@@ -64,6 +67,7 @@ public class SnakeHead extends GameEntity implements Animatable {
             SnakeBody newPart = new SnakeBody(pane, tail);
             tail = newPart;
         }
+        powerUpCounter++;
     }
 
     public void changeHealth(int diff) {
