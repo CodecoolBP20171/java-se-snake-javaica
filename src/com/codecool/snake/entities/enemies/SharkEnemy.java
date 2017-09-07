@@ -10,31 +10,28 @@ import com.codecool.snake.entities.snakes.SnakeFire;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+
 import java.util.Random;
 
 import static com.codecool.snake.Globals.snakeHead;
 
 // a simple enemy TODO make better ones.
-public class CannabisEnemy extends GameEntity implements Animatable, Interactable {
+public class SharkEnemy extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private static final int damage = Main.randInt(1,20);
+    private static final int damage = 10;
 
-    public CannabisEnemy(Pane pane) {
+    public SharkEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.cannabisEnemy);
+        setImage(Globals.sharkEnemy);
         pane.getChildren().add(this);
-
-        int speed = setRandomSpeed(1,5);
-      
+        int speed = 1;
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
-
         double direction = rnd.nextDouble() * 360;
-
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
     }
@@ -42,8 +39,24 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            destroy();
-            addNewCannabisEnemy();
+            Random randomdir = new Random();
+            double dir = 10;
+            if (getX() > Globals.WINDOW_WIDTH){
+                dir = randomdir.nextInt((360-180)+1) + 180;
+            }
+            else if  (getX() < 0) {
+                 dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+            else if (getY() > Globals.WINDOW_HEIGHT) {
+                dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+            else if (getY() < 0) {
+                dir = randomdir.nextInt((270 -90) +1 ) + 90;
+            }
+            setRotate(dir);
+            heading = Utils.directionToVector(dir, 2);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -55,14 +68,14 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewCannabisEnemy();
+            addNewSimpleEnemy();
         }
     }
 
     @Override
     public void fire(SnakeFire snakeFire) {
         destroy();
-        new CannabisEnemy(pane);
+        new SharkEnemy(pane);
     }
 
     @Override

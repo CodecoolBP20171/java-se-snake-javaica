@@ -15,7 +15,7 @@ import java.util.Random;
 import static com.codecool.snake.Globals.snakeHead;
 
 // a simple enemy TODO make better ones.
-public class JamaicaEnemy extends GameEntity implements Animatable, Interactable {
+public class JellyfishEnemy extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
     private int speed;
@@ -23,10 +23,10 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
     private static final float turnRate = 2;
 
 
-    public JamaicaEnemy(Pane pane) {
+    public JellyfishEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.jamaicaEnemy);
+        setImage(Globals.jellyfishEnemy);
         pane.getChildren().add(this);
         this.speed = setRandomSpeed(1,3);
         Random rnd = new Random();
@@ -72,7 +72,7 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
     @Override
     public void fire(SnakeFire snakeFire) {
         destroy();
-        new JamaicaEnemy(pane);
+        new JellyfishEnemy(pane);
     }
 
     @Override

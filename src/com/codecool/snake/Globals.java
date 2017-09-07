@@ -19,9 +19,9 @@ public class Globals {
     public static Image snakeBody = new Image("snake_body.png");
     public static Image snakeFire = new Image("snake_fire.png");
   
-    public static Image glassEnemy = new Image("glass_enemy.png");
-    public static Image jamaicaEnemy = new Image("jamaica_enemy.png");
-    public static Image cannabisEnemy = new Image("cannabis_enemy.png");
+    public static Image sharkEnemy = new Image("shark.png");
+    public static Image octopusEnemy = new Image("octopus.png");
+    public static Image jellyfishEnemy = new Image("jellyfish.png");
 
     public static Image powerupStarFish = new Image("starfish.png");
     public static Image superPowerupShell = new Image("shellwithpearl.png");
