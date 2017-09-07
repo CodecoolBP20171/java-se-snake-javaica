@@ -1,8 +1,10 @@
 package com.codecool.snake.entities.powerups;
 
 import com.codecool.snake.Globals;
+import com.codecool.snake.Main;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.snakes.SnakeFire;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
@@ -25,8 +27,14 @@ public class SimplePowerup2 extends GameEntity implements Interactable {
     public void apply(SnakeHead snakeHead) {
         snakeHead.changeHealth(2);
         snakeHead.addPart(4);
-        snakeHead.changeSpeed(2);
+        snakeHead.changeSpeed(1);
         destroy();
+    }
+
+    @Override
+    public void fire(SnakeFire snakeFire) {
+        destroy();
+        new SimplePowerup2(pane);
     }
 
     @Override
