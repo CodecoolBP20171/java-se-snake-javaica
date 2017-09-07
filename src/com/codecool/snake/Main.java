@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -15,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         Game game = new Game();
-
+        game.getChildren().add(getLabel());
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         primaryStage.show();
@@ -26,5 +27,10 @@ public class Main extends Application {
         Random random = new Random();
         int randomNumber = random.nextInt((max - min) + 1) + min;
         return randomNumber;
+    }
+
+    public Label getLabel(){
+        Label healthLabel = Globals.label;
+        return healthLabel;
     }
 }

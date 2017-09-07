@@ -11,7 +11,6 @@ import com.codecool.snake.entities.snakes.SnakeBody;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
-
 import java.util.Random;
 
 // a simple enemy TODO make better ones.

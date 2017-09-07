@@ -4,8 +4,6 @@ import com.codecool.snake.entities.enemies.CannabisEnemy;
 import com.codecool.snake.entities.enemies.JamaicaEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
-import com.codecool.snake.entities.powerups.SimplePowerup2;
-import com.codecool.snake.entities.powerups.SuperPowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
