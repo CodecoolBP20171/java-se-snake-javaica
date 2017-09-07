@@ -43,15 +43,15 @@ public abstract class GameEntity extends ImageView {
 
 
 
-    public void addNewCannabisEnemy() {
+    public void addNewOctopusEnemy() {
         OctopusEnemy newEnemy = new OctopusEnemy(this.pane);
     }
 
-    public void addNewJamaicaEnemy() {
+    public void addNewJellyfishEnemy() {
         JellyfishEnemy newEnemy = new JellyfishEnemy(this.pane);
     }
 
-    public void addNewSimpleEnemy() {
+    public void addNewSharkEnemy() {
         SharkEnemy newEnemy = new SharkEnemy(this.pane);
     }
 }

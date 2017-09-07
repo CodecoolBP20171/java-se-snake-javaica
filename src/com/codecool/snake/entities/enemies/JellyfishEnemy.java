@@ -55,7 +55,7 @@ public class JellyfishEnemy extends GameEntity implements Animatable, Interactab
 
         if (isOutOfBounds()) {
             destroy();
-            addNewJamaicaEnemy();
+            addNewJellyfishEnemy();
         }
     }
 
@@ -65,7 +65,7 @@ public class JellyfishEnemy extends GameEntity implements Animatable, Interactab
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewJamaicaEnemy();
+            addNewJellyfishEnemy();
         }
     }
 

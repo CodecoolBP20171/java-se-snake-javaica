@@ -68,7 +68,7 @@ public class SharkEnemy extends GameEntity implements Animatable, Interactable {
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewSimpleEnemy();
+            addNewSharkEnemy();
         }
     }
 

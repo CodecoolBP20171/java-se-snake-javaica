@@ -43,7 +43,7 @@ public class OctopusEnemy extends GameEntity implements Animatable, Interactable
     public void step() {
         if (isOutOfBounds()) {
             destroy();
-            addNewCannabisEnemy();
+            addNewOctopusEnemy();
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -55,7 +55,7 @@ public class OctopusEnemy extends GameEntity implements Animatable, Interactable
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewCannabisEnemy();
+            addNewOctopusEnemy();
         }
     }
 
