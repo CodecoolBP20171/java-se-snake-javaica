@@ -4,6 +4,8 @@ import com.codecool.snake.Globals;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.util.Random;
+
 // The base class for every game entity.
 public abstract class GameEntity extends ImageView {
 
@@ -28,5 +30,11 @@ public abstract class GameEntity extends ImageView {
             return true;
         }
         return false;
+    }
+
+    protected int setRandomSpeed(int min, int max) {
+        Random random = new Random();
+        int randomNumber = random.nextInt((max - min) + 1) + min;
+        return randomNumber;
     }
 }
