@@ -16,6 +16,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     private static final float turnRate = 2;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int health;
+    private int countParts = 0;
 
     public SnakeHead(Pane pane, int xc, int yc) {
         super(pane);
@@ -66,7 +67,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
-            GameOver.display("GAME OVER", "Your healt is: ");
+            GameOver.display("GAME OVER", "Your score is: " + countParts);
             Globals.gameLoop.stop();
         }
     }
@@ -76,7 +77,9 @@ public class SnakeHead extends GameEntity implements Animatable {
             SnakeBody newPart = new SnakeBody(pane, tail);
             tail = newPart;
         }
+        countParts = countParts + numParts;
     }
+
 
     public void changeHealth(int diff) {
         health += diff;
