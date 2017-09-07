@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.Game;
 import com.codecool.snake.Main;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
@@ -9,7 +10,6 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
-
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
@@ -23,12 +23,16 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
 
         setImage(Globals.cannabisEnemy);
         pane.getChildren().add(this);
+
         int speed = setRandomSpeed(1,5);
+      
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
+
         double direction = rnd.nextDouble() * 360;
+
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
     }
@@ -37,6 +41,7 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
     public void step() {
         if (isOutOfBounds()) {
             destroy();
+            addNewCannabisEnemy();
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());

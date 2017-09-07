@@ -42,6 +42,9 @@ public class SnakeHead extends GameEntity implements Animatable {
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+        System.out.println("getX: " + getX());
+        System.out.println("getY: " + getY());
+        System.out.println("Dir :" + dir);
 
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {

@@ -33,5 +33,4 @@ public class Main extends Application {
         Label healthLabel = Globals.label;
         return healthLabel;
     }
-
 }
