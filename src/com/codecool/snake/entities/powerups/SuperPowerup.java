@@ -23,8 +23,9 @@ public class SuperPowerup extends GameEntity implements Interactable {
         pane.getChildren().add(this);
 
         Random rnd = new Random();
-        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
-        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+        setX(rnd.nextDouble() * (Globals.WINDOW_WIDTH-100));
+        setY(rnd.nextDouble() * (Globals.WINDOW_HEIGHT-100));
+
     }
 
     @Override
@@ -36,12 +37,12 @@ public class SuperPowerup extends GameEntity implements Interactable {
         destroy();
         snakeHead.setImage(Globals.happy);
         for (int i =0; i < ThreadLocalRandom.current().nextInt(1,3); i++){
-            SimplePowerup newSimplePower = new SimplePowerup(pane);
+            new SimplePowerup(pane);
         }
         for (int i =0; i < ThreadLocalRandom.current().nextInt(2,4); i++){
-            SimplePowerup2 newSimplePower2 = new SimplePowerup2(pane);
+            new SimplePowerup2(pane);
         }
-        SuperPowerup newSuperPowerup = new SuperPowerup(pane);
+        new SuperPowerup(pane);
     }
 
 
