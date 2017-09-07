@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.Game;
 import com.codecool.snake.Main;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
@@ -51,6 +52,11 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        if (isOutOfBounds()) {
+            destroy();
+            addNewJamaicaEnemy();
+        }
     }
 
     @Override
