@@ -27,5 +27,4 @@ public class Main extends Application {
         int randomNumber = random.nextInt((max - min) + 1) + min;
         return randomNumber;
     }
-
 }
