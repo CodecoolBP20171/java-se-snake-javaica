@@ -50,6 +50,9 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        for (int i = 0; i < Main.randInt(1,2); i++) {
+            addNewCannabisEnemy();
+        }
     }
 
     @Override
