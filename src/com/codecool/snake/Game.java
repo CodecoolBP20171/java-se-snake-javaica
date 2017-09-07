@@ -51,6 +51,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = true; break;
                 case RIGHT: Globals.rightKeyDown  = true; break;
+                case SPACE: Globals.spaceKeyDown  = false; break;
             }
         });
 
@@ -58,6 +59,7 @@ public class Game extends Pane {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = false; break;
                 case RIGHT: Globals.rightKeyDown  = false; break;
+                case SPACE: Globals.spaceKeyDown  = true; break;
             }
         });
         Globals.gameLoop = new GameLoop();

@@ -1,9 +1,11 @@
 package com.codecool.snake.entities.powerups;
 
 import com.codecool.snake.Globals;
+import com.codecool.snake.Main;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeBody;
+import com.codecool.snake.entities.snakes.SnakeFire;
 import com.codecool.snake.entities.snakes.SnakeHead;
 
 import javafx.scene.image.Image;
@@ -36,15 +38,20 @@ public class SuperPowerup extends GameEntity implements Interactable {
         //SnakeBody.setHistorySize(2);
         destroy();
         snakeHead.setImage(Globals.happy);
-        for (int i =0; i < ThreadLocalRandom.current().nextInt(1,3); i++){
+        for (int i =0; i < ThreadLocalRandom.current().nextInt(1,2); i++){
             new SimplePowerup(pane);
         }
-        for (int i =0; i < ThreadLocalRandom.current().nextInt(2,4); i++){
+        for (int i =0; i < ThreadLocalRandom.current().nextInt(1,2); i++){
             new SimplePowerup2(pane);
         }
         new SuperPowerup(pane);
     }
 
+    @Override
+    public void fire(SnakeFire snakeFire) {
+        destroy();
+        new SuperPowerup(pane);
+    }
 
     @Override
     public String getMessage() {

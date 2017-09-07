@@ -8,6 +8,7 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeBody;
+import com.codecool.snake.entities.snakes.SnakeFire;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
@@ -68,6 +69,12 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
         for (int i = 0; i < Main.randInt(1,2); i++) {
             addNewJamaicaEnemy();
         }
+    }
+
+    @Override
+    public void fire(SnakeFire snakeFire) {
+        destroy();
+        new JamaicaEnemy(pane);
     }
 
     @Override
