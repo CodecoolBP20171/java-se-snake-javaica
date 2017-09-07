@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.Random;
 
 public class Main extends Application {
@@ -18,7 +19,8 @@ public class Main extends Application {
         Game game = new Game();
         game.getChildren().add(getLabel());
         primaryStage.setTitle("Snake Game");
-        primaryStage.setScene(new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
+        primaryStage.setScene(new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT, ));
+
         primaryStage.show();
         game.start();
     }

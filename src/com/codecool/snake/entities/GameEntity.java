@@ -44,21 +44,7 @@ public abstract class GameEntity extends ImageView {
         return randomNumber;
     }
 
-    public void changeDirectionToRandom(double dir, int speed) {
-        if (dir > 0) {
-            dir -= -180;
-            setRotate(dir);
-            Point2D newHeading = Utils.directionToVector(dir, speed);
-            setX(getX() + newHeading.getX());
-            setY(getY() + newHeading.getY());
-        } else {
-            dir += 180;
-            setRotate(dir);
-            Point2D newHeading = Utils.directionToVector(dir, speed);
-            setX(getX() + newHeading.getX());
-            setY(getY() + newHeading.getY());
-        }
-    }
+
 
     public void addNewCannabisEnemy() {
         CannabisEnemy newEnemy = new CannabisEnemy(this.pane);

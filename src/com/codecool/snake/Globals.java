@@ -18,11 +18,10 @@ public class Globals {
     public static Image snakeHead = new Image("snake_head.png");
     public static Image snakeBody = new Image("snake_body.png");
   
-    public static Image simpleEnemy = new Image("simple_enemy.png");
+    public static Image glassEnemy = new Image("glass_enemy.png");
     public static Image jamaicaEnemy = new Image("jamaica_enemy.png");
     public static Image cannabisEnemy = new Image("cannabis_enemy.png");
-  
-    public static Image powerupBerry = new Image("powerup_berry.png");
+
     public static Image powerupStarFish = new Image("starfish.png");
     public static Image superPowerupShell = new Image("shellwithpearl.png");
     public static Image powerupShell = new Image("shell.png");

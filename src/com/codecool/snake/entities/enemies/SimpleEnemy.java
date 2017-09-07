@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 
 import java.util.Random;
 
+import static com.codecool.snake.Globals.snakeHead;
+
 // a simple enemy TODO make better ones.
 public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
 
@@ -22,7 +24,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public SimpleEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.simpleEnemy);
+        setImage(Globals.glassEnemy);
         pane.getChildren().add(this);
         int speed = 1;
         Random rnd = new Random();
@@ -48,6 +50,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
             addNewSimpleEnemy();
         }

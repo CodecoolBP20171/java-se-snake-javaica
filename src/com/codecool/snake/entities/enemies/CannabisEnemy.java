@@ -12,6 +12,8 @@ import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import java.util.Random;
 
+import static com.codecool.snake.Globals.snakeHead;
+
 // a simple enemy TODO make better ones.
 public class CannabisEnemy extends GameEntity implements Animatable, Interactable {
 
@@ -51,6 +53,7 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
             addNewCannabisEnemy();
         }
