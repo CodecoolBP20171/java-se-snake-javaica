@@ -39,8 +39,28 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            destroy();
-            addNewSimpleEnemy();
+            Random randomdir = new Random();
+            double dir = 10;
+            if (getX() > Globals.WINDOW_WIDTH){
+                dir = randomdir.nextInt((360-180)+1) + 180;
+            }
+            else if  (getX() < 0) {
+                 dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+
+            else if (getY() > Globals.WINDOW_HEIGHT) {
+                dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+
+            else if (getY() < 0) {
+                dir = randomdir.nextInt((270 -90) +1 ) + 90;
+            }
+
+            setRotate(dir);
+            heading = Utils.directionToVector(dir, 2);
+
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
