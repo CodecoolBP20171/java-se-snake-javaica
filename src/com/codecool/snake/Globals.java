@@ -26,8 +26,11 @@ public class Globals {
     public static Image powerupStarFish = new Image("starfish.png");
     public static Image superPowerupShell = new Image("shellwithpearl.png");
     public static Image powerupShell = new Image("shell.png");
+
+    public static Image happy = new Image("happy.png");
   
     public static Label label = new Label();
+
 
     //.. put here the other images you want to use
 

@@ -14,6 +14,7 @@ public class SimplePowerup extends GameEntity implements Interactable {
     public SimplePowerup(Pane pane) {
         super(pane);
         setImage(Globals.powerupShell);
+
         pane.getChildren().add(this);
 
         Random rnd = new Random();
@@ -24,8 +25,10 @@ public class SimplePowerup extends GameEntity implements Interactable {
     @Override
     public void apply(SnakeHead snakeHead) {
         snakeHead.changeHealth(3);
-        snakeHead.addPart(4);
+        snakeHead.addPart(2);
         destroy();
+
+        SnakeHead.setSpeed(4);
     }
 
     @Override

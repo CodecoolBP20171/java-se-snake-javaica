@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.snakes;
 
+import com.codecool.snake.GameOver;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -27,6 +28,10 @@ public class SnakeHead extends GameEntity implements Animatable {
         pane.getChildren().add(this);
 
         addPart(4);
+    }
+
+    public static void setSpeed(float speed) {
+        SnakeHead.speed = speed;
     }
 
     public void step() {
@@ -61,6 +66,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
+            GameOver.display("GAME OVER", "Your healt is: ");
             Globals.gameLoop.stop();
         }
     }

@@ -6,8 +6,10 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeBody;
 import com.codecool.snake.entities.snakes.SnakeHead;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
+import java.awt.*;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,6 +18,7 @@ public class SuperPowerup extends GameEntity implements Interactable {
 
     public SuperPowerup(Pane pane) {
         super(pane);
+
         setImage(Globals.superPowerupShell);
         pane.getChildren().add(this);
 
@@ -28,14 +31,19 @@ public class SuperPowerup extends GameEntity implements Interactable {
     public void apply(SnakeHead snakeHead) {
         snakeHead.changeHealth(20);
         snakeHead.getRotate();
-        snakeHead.changeSpeed(2);
+        snakeHead.changeSpeed(-1);
         //SnakeBody.setHistorySize(2);
         destroy();
+        snakeHead.setImage(Globals.happy);
         for (int i =0; i < ThreadLocalRandom.current().nextInt(1,3); i++){
             SimplePowerup newSimplePower = new SimplePowerup(pane);
         }
+        for (int i =0; i < ThreadLocalRandom.current().nextInt(2,4); i++){
+            SimplePowerup2 newSimplePower2 = new SimplePowerup2(pane);
+        }
         SuperPowerup newSuperPowerup = new SuperPowerup(pane);
     }
+
 
     @Override
     public String getMessage() {
