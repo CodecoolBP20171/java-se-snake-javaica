@@ -62,6 +62,9 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
     public void apply(SnakeHead player) {
         player.changeHealth(-damage);
         destroy();
+        for (int i = 0; i < Main.randInt(1,2); i++) {
+            addNewJamaicaEnemy();
+        }
     }
 
     @Override

@@ -39,5 +39,4 @@ hs_err_pid*
 *.iml
 *.iws
 
-echo .idea/workspace.xml>>.gitignore
-echo workspace.xml>>.idea/.gitignore
+.idea/workspace.xml
