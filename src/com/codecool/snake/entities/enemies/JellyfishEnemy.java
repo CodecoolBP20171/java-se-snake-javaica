@@ -15,38 +15,48 @@ import java.util.Random;
 import static com.codecool.snake.Globals.snakeHead;
 
 // a simple enemy TODO make better ones.
-public class CannabisEnemy extends GameEntity implements Animatable, Interactable {
+public class JellyfishEnemy extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
+    private int speed;
     private static final int damage = Main.randInt(1,20);
+    private static final float turnRate = 2;
 
-    public CannabisEnemy(Pane pane) {
+
+    public JellyfishEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.cannabisEnemy);
+        setImage(Globals.jellyfishEnemy);
         pane.getChildren().add(this);
-
-        int speed = setRandomSpeed(1,5);
-      
+        this.speed = setRandomSpeed(1,3);
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
-
         double direction = rnd.nextDouble() * 360;
-
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
     }
 
     @Override
     public void step() {
-        if (isOutOfBounds()) {
-            destroy();
-            addNewCannabisEnemy();
+        double dir = getRotate();
+        if (Globals.leftKeyDown) {
+            dir = dir + turnRate;
         }
+        if (Globals.rightKeyDown) {
+            dir = dir - turnRate;
+        }
+        // set rotation and position
+        setRotate(dir);
+        Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+
+        if (isOutOfBounds()) {
+            destroy();
+            addNewJellyfishEnemy();
+        }
     }
 
     @Override
@@ -55,14 +65,14 @@ public class CannabisEnemy extends GameEntity implements Animatable, Interactabl
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewCannabisEnemy();
+            addNewJellyfishEnemy();
         }
     }
 
     @Override
     public void fire(SnakeFire snakeFire) {
         destroy();
-        new CannabisEnemy(pane);
+        new JellyfishEnemy(pane);
     }
 
     @Override

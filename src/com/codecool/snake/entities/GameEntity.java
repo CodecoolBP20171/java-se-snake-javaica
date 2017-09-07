@@ -1,12 +1,9 @@
 package com.codecool.snake.entities;
 
 import com.codecool.snake.Globals;
-import com.codecool.snake.Main;
-import com.codecool.snake.Utils;
-import com.codecool.snake.entities.enemies.CannabisEnemy;
-import com.codecool.snake.entities.enemies.JamaicaEnemy;
-import com.codecool.snake.entities.enemies.SimpleEnemy;
-import javafx.geometry.Point2D;
+import com.codecool.snake.entities.enemies.OctopusEnemy;
+import com.codecool.snake.entities.enemies.JellyfishEnemy;
+import com.codecool.snake.entities.enemies.SharkEnemy;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -46,15 +43,15 @@ public abstract class GameEntity extends ImageView {
 
 
 
-    public void addNewCannabisEnemy() {
-        CannabisEnemy newEnemy = new CannabisEnemy(this.pane);
+    public void addNewOctopusEnemy() {
+        OctopusEnemy newEnemy = new OctopusEnemy(this.pane);
     }
 
-    public void addNewJamaicaEnemy() {
-        JamaicaEnemy newEnemy = new JamaicaEnemy(this.pane);
+    public void addNewJellyfishEnemy() {
+        JellyfishEnemy newEnemy = new JellyfishEnemy(this.pane);
     }
 
-    public void addNewSimpleEnemy() {
-        SimpleEnemy newEnemy = new SimpleEnemy(this.pane);
+    public void addNewSharkEnemy() {
+        SharkEnemy newEnemy = new SharkEnemy(this.pane);
     }
 }

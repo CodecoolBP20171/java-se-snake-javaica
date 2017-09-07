@@ -10,25 +10,23 @@ import com.codecool.snake.entities.snakes.SnakeFire;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+
 import java.util.Random;
 
 import static com.codecool.snake.Globals.snakeHead;
 
 // a simple enemy TODO make better ones.
-public class JamaicaEnemy extends GameEntity implements Animatable, Interactable {
+public class SharkEnemy extends GameEntity implements Animatable, Interactable {
 
     private Point2D heading;
-    private int speed;
-    private static final int damage = Main.randInt(1,20);
-    private static final float turnRate = 2;
+    private static final int damage = 10;
 
-
-    public JamaicaEnemy(Pane pane) {
+    public SharkEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.jamaicaEnemy);
+        setImage(Globals.sharkEnemy);
         pane.getChildren().add(this);
-        this.speed = setRandomSpeed(1,3);
+        int speed = 1;
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
@@ -40,23 +38,28 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
 
     @Override
     public void step() {
-        double dir = getRotate();
-        if (Globals.leftKeyDown) {
-            dir = dir + turnRate;
+        if (isOutOfBounds()) {
+            Random randomdir = new Random();
+            double dir = 10;
+            if (getX() > Globals.WINDOW_WIDTH){
+                dir = randomdir.nextInt((360-180)+1) + 180;
+            }
+            else if  (getX() < 0) {
+                 dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+            else if (getY() > Globals.WINDOW_HEIGHT) {
+                dir = randomdir.nextInt((90 -0) +1 );
+            }
+
+            else if (getY() < 0) {
+                dir = randomdir.nextInt((270 -90) +1 ) + 90;
+            }
+            setRotate(dir);
+            heading = Utils.directionToVector(dir, 2);
         }
-        if (Globals.rightKeyDown) {
-            dir = dir - turnRate;
-        }
-        // set rotation and position
-        setRotate(dir);
-        Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
-
-        if (isOutOfBounds()) {
-            destroy();
-            addNewJamaicaEnemy();
-        }
     }
 
     @Override
@@ -65,14 +68,14 @@ public class JamaicaEnemy extends GameEntity implements Animatable, Interactable
         destroy();
         player.setImage(snakeHead);
         for (int i = 0; i < Main.randInt(1,2); i++) {
-            addNewJamaicaEnemy();
+            addNewSharkEnemy();
         }
     }
 
     @Override
     public void fire(SnakeFire snakeFire) {
         destroy();
-        new JamaicaEnemy(pane);
+        new SharkEnemy(pane);
     }
 
     @Override
