@@ -25,6 +25,7 @@ public class SimplePowerup2 extends GameEntity implements Interactable {
     public void apply(SnakeHead snakeHead) {
         snakeHead.changeHealth(2);
         snakeHead.addPart(4);
+        snakeHead.changeSpeed(2);
         destroy();
     }
 

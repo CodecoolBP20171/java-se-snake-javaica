@@ -4,6 +4,8 @@ import com.codecool.snake.entities.enemies.CannabisEnemy;
 import com.codecool.snake.entities.enemies.JamaicaEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
+import com.codecool.snake.entities.powerups.SimplePowerup2;
+import com.codecool.snake.entities.powerups.SuperPowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -14,6 +16,7 @@ public class Game extends Pane {
 
     public Game() {
         new SnakeHead(this, 500, 500);
+        new SuperPowerup(this);
 
         for (int i = 0; i < Main.randInt(1,4); i++) {
             new SimpleEnemy(this);
@@ -25,7 +28,7 @@ public class Game extends Pane {
         }
 
 
-        for (int i = 0; i < Main.randInt(1,4); i++) {
+        for (int i = 0; i < Main.randInt(5,10); i++) {
             new SimplePowerup(this);
         }
 
@@ -33,6 +36,12 @@ public class Game extends Pane {
         for (int i = 0; i < Main.randInt(1,4); i++) {
             new CannabisEnemy(this);
         }
+
+        for (int i = 0; i < Main.randInt(6,9); i++) {
+            new SimplePowerup2(this);
+        }
+
+
 
     }
 
