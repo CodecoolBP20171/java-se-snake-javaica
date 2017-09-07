@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 import java.util.Collections;
@@ -26,6 +27,8 @@ public class Globals {
     public static Image superPowerupShell = new Image("shellwithpearl.png");
     public static Image powerupShell = new Image("shell.png");
   
+    public static Label label = new Label();
+
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;
