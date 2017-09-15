@@ -18,7 +18,7 @@ public class Andienemy extends GameEntity implements Animatable, Interactable{
     public Andienemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.simpleEnemy);
+        setImage(Globals.googlenenemy);
         pane.getChildren().add(this);
         int speed = 3;
         Random rnd = new Random();
